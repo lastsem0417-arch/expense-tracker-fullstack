@@ -1,0 +1,66 @@
+<h2>Expenses</h2>
+
+<input
+type="text"
+placeholder="Search expense..."
+[(ngModel)]="searchText"
+class="search"
+/>
+
+<table>
+
+<tr>
+<th>Title</th>
+<th>Amount</th>
+<th>Category</th>
+<th>Action</th>
+</tr>
+
+<tr *ngFor="let e of filteredExpenses()">
+
+<td>
+
+<input *ngIf="editingId===e._id"
+[(ngModel)]="editTitle">
+
+<span *ngIf="editingId!==e._id">
+{{e.title}}
+</span>
+
+</td>
+
+<td>
+
+<input type="number"
+*ngIf="editingId===e._id"
+[(ngModel)]="editAmount">
+
+<span *ngIf="editingId!==e._id">
+₹{{e.amount}}
+</span>
+
+</td>
+
+<td>{{e.category}}</td>
+
+<td>
+
+<button *ngIf="editingId!==e._id"
+(click)="startEdit(e)">
+Edit
+</button>
+
+<button *ngIf="editingId===e._id"
+(click)="saveEdit(e._id)">
+Save
+</button>
+
+<button (click)="deleteExpense(e._id)">
+Delete
+</button>
+
+</td>
+
+</tr>
+
+</table>

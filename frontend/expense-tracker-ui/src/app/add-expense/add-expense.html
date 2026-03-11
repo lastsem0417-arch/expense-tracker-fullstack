@@ -1,0 +1,35 @@
+<div class="expense-form">
+
+<h2>Add New Expense</h2>
+
+<div class="success" *ngIf="successMessage">
+{{successMessage}}
+</div>
+
+<label>Title</label>
+<input type="text" placeholder="Expense title" [(ngModel)]="title">
+
+<label>Amount</label>
+<input type="number" placeholder="Amount ₹" [(ngModel)]="amount">
+
+<label>Category</label>
+<select [(ngModel)]="category">
+
+<option value="">Select Category</option>
+<option>Food</option>
+<option>Transport</option>
+<option>Shopping</option>
+<option>Bills</option>
+<option>Entertainment</option>
+
+</select>
+
+<label>Date</label>
+<input type="date" [(ngModel)]="date">
+
+<label>Notes</label>
+<textarea placeholder="Optional notes..." [(ngModel)]="notes"></textarea>
+
+<button (click)="addExpense()">Add Expense</button>
+
+</div>

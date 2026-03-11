@@ -1,0 +1,64 @@
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+.navbar{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:15px 40px;
+
+background:#1f2937;
+color:white;
+
+}
+
+.logo{
+
+font-size:20px;
+font-weight:bold;
+
+}
+
+.nav-links{
+
+display:flex;
+align-items:center;
+gap:20px;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+color:white;
+font-size:15px;
+transition:0.3s;
+
+}
+
+.nav-links a:hover{
+
+color:#4caf50;
+
+}
+
+.logout{
+
+background:#ef4444;
+border:none;
+padding:6px 12px;
+color:white;
+border-radius:5px;
+cursor:pointer;
+
+}
+
+.logout:hover{
+
+background:#dc2626;
+
+}

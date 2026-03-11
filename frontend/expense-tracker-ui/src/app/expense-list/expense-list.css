@@ -1,0 +1,55 @@
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ccc;
+}
+
+button{
+background:red;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:4px;
+cursor:pointer;
+}
+.search{
+padding:8px;
+margin-bottom:15px;
+width:250px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+button{
+background:red;
+color:white;
+border:none;
+padding:6px 10px;
+border-radius:5px;
+cursor:pointer;
+}
+.search-box{
+margin-bottom:15px;
+}
+
+.search-box input{
+padding:8px;
+width:250px;
+border-radius:6px;
+border:1px solid #ccc;
+}

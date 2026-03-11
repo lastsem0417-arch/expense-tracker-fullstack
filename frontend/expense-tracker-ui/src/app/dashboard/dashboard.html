@@ -1,0 +1,75 @@
+<div class="dashboard">
+
+<h2>Expense Dashboard</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Expense</h3>
+<p>₹{{totalExpense}}</p>
+</div>
+
+<div class="card">
+<h3>Total Transactions</h3>
+<p>{{expenseCount}}</p>
+</div>
+
+<div class="card">
+<h3>Monthly Budget</h3>
+
+<p>₹{{budget}}</p>
+
+<div class="progress-bar">
+
+<div
+class="progress"
+[style.width.%]="progress">
+</div>
+
+</div>
+
+<p>Remaining ₹{{remaining}}</p>
+
+</div>
+
+</div>
+
+<div class="charts">
+
+<div class="chart-box">
+<h3>Category Analytics</h3>
+<canvas id="expenseChart"></canvas>
+</div>
+
+<div class="chart-box">
+<h3>Monthly Expense</h3>
+<canvas id="monthlyChart"></canvas>
+</div>
+
+</div>
+
+<div class="recent">
+
+<h3>Recent Expenses</h3>
+
+<table>
+
+<tr>
+<th>Title</th>
+<th>Amount</th>
+<th>Category</th>
+</tr>
+
+<tr *ngFor="let e of recentExpenses">
+
+<td>{{e.title}}</td>
+<td>₹{{e.amount}}</td>
+<td>{{e.category}}</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>

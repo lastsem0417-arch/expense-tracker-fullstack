@@ -1,0 +1,42 @@
+<header class="navbar">
+
+<div class="logo">
+Expense Tracker
+</div>
+
+<nav class="nav-links">
+
+<!-- Before Login -->
+
+<a *ngIf="!isLoggedIn()" routerLink="/login">
+Login
+</a>
+
+<a *ngIf="!isLoggedIn()" routerLink="/register">
+Register
+</a>
+
+
+<!-- After Login -->
+
+<a *ngIf="isLoggedIn()" routerLink="/dashboard">
+Dashboard
+</a>
+
+<a *ngIf="isLoggedIn()" routerLink="/add">
+Add Expense
+</a>
+
+<a *ngIf="isLoggedIn()" routerLink="/expenses">
+Expenses
+</a>
+
+<button *ngIf="isLoggedIn()" (click)="logout()" class="logout">
+Logout
+</button>
+
+</nav>
+
+</header>
+
+<router-outlet></router-outlet>
