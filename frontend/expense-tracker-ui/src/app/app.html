@@ -1,39 +1,45 @@
 <header class="navbar">
 
 <div class="logo">
-Expense Tracker
+💰 Smart Expense Tracker
 </div>
 
 <nav class="nav-links">
 
-<!-- Before Login -->
+<!-- BEFORE LOGIN -->
 
-<a *ngIf="!isLoggedIn()" routerLink="/login">
-Login
-</a>
+<div *ngIf="!isLoggedIn()" class="auth-links">
 
-<a *ngIf="!isLoggedIn()" routerLink="/register">
-Register
-</a>
+<a routerLink="/login">Login</a>
+
+<a routerLink="/register">Register</a>
+
+</div>
 
 
-<!-- After Login -->
+<!-- AFTER LOGIN -->
 
-<a *ngIf="isLoggedIn()" routerLink="/dashboard">
-Dashboard
-</a>
+<div *ngIf="isLoggedIn()" class="menu-links">
 
-<a *ngIf="isLoggedIn()" routerLink="/add">
-Add Expense
-</a>
+<a routerLink="/dashboard">Dashboard</a>
 
-<a *ngIf="isLoggedIn()" routerLink="/expenses">
-Expenses
-</a>
+<a routerLink="/add">Add Expense</a>
 
-<button *ngIf="isLoggedIn()" (click)="logout()" class="logout">
+<a routerLink="/expenses">Expenses</a>
+
+<a routerLink="/add-income">Add Income</a>
+
+<a routerLink="/income">Income</a>
+
+<a routerLink="/calendar">Calendar</a>
+
+<a routerLink="/profile">Profile</a>
+
+<button (click)="logout()" class="logout">
 Logout
 </button>
+
+</div>
 
 </nav>
 

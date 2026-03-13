@@ -17,6 +17,7 @@ export class LoginComponent{
 email:string=""
 password:string=""
 errorMessage:string=""
+loading:boolean=false
 
 constructor(
 private authService:AuthService,
@@ -32,6 +33,8 @@ return
 
 }
 
+this.loading=true
+
 const data={
 email:this.email,
 password:this.password
@@ -41,16 +44,35 @@ this.authService.login(data).subscribe({
 
 next:(res:any)=>{
 
+this.loading=false
+
+// save token
 localStorage.setItem("token",res.token)
 
-// redirect to dashboard
+// save userId for profile
+localStorage.setItem("userId",res.user._id)
+
+// optional save name
+localStorage.setItem("userName",res.user.name)
+
+// redirect
 this.router.navigate(['/dashboard'])
 
 },
 
-error:()=>{
+error:(err)=>{
+
+this.loading=false
+
+if(err.status===401){
 
 this.errorMessage="Invalid email or password"
+
+}else{
+
+this.errorMessage="Server error. Please try again."
+
+}
 
 }
 
@@ -58,4 +80,4 @@ this.errorMessage="Invalid email or password"
 
 }
 
-}
+}   

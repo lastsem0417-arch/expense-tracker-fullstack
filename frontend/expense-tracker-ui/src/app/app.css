@@ -11,8 +11,10 @@ align-items:center;
 
 padding:15px 40px;
 
-background:#1f2937;
+background:#111827;
 color:white;
+
+box-shadow:0 2px 8px rgba(0,0,0,0.2);
 
 }
 
@@ -27,7 +29,15 @@ font-weight:bold;
 
 display:flex;
 align-items:center;
+
+}
+
+.menu-links,
+.auth-links{
+
+display:flex;
 gap:20px;
+align-items:center;
 
 }
 
@@ -35,14 +45,14 @@ gap:20px;
 
 text-decoration:none;
 color:white;
-font-size:15px;
+font-size:14px;
 transition:0.3s;
 
 }
 
 .nav-links a:hover{
 
-color:#4caf50;
+color:#22c55e;
 
 }
 
@@ -50,9 +60,9 @@ color:#4caf50;
 
 background:#ef4444;
 border:none;
-padding:6px 12px;
+padding:6px 14px;
 color:white;
-border-radius:5px;
+border-radius:6px;
 cursor:pointer;
 
 }

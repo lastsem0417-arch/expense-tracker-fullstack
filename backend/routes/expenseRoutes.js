@@ -4,14 +4,15 @@ const Expense = require("../models/Expense");
 
 
 // ADD EXPENSE
-router.post("/add", async (req, res) => {
+router.post("/add", async(req,res)=>{
 
 try{
 
 const expense = new Expense(req.body)
-const savedExpense = await expense.save()
 
-res.json(savedExpense)
+const saved = await expense.save()
+
+res.json(saved)
 
 }catch(error){
 
@@ -23,11 +24,13 @@ res.status(500).json(error)
 
 
 // GET ALL EXPENSES
-router.get("/", async (req,res)=>{
+router.get("/:userId", async(req,res)=>{
 
 try{
 
-const expenses = await Expense.find().sort({date:-1})
+const expenses = await Expense.find({
+userId:req.params.userId
+})
 
 res.json(expenses)
 
@@ -38,7 +41,6 @@ res.status(500).json(error)
 }
 
 })
-
 
 // UPDATE EXPENSE
 router.put("/:id", async (req,res)=>{

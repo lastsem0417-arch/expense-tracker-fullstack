@@ -1,0 +1,39 @@
+<div class="profile-container">
+
+<div class="profile-card">
+
+<h2>User Profile</h2>
+
+<label>Name</label>
+<input type="text" [(ngModel)]="name">
+
+<label>Email</label>
+<input type="email" [(ngModel)]="email">
+
+<button (click)="updateProfile()">
+Update Profile
+</button>
+
+</div>
+
+<div class="profile-stats">
+
+<h3>Your Stats</h3>
+
+<div class="stat">
+<span>Total Expenses</span>
+<strong>₹ {{totalExpense}}</strong>
+</div>
+
+<div class="stat">
+<span>Total Income</span>
+<strong>₹ {{totalIncome}}</strong>
+</div>
+
+<div class="stat">
+<span>Savings</span>
+<strong>₹ {{savings}}</strong>
+</div>
+
+</div>
+</div>

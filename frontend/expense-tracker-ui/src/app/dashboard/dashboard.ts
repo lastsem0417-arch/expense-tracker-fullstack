@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseService } from '../services/expense.service';
+import { IncomeService } from '../services/income.service';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
 import Chart from 'chart.js/auto';
@@ -15,6 +16,9 @@ styleUrls:['./dashboard.css']
 export class DashboardComponent implements OnInit{
 
 totalExpense=0
+totalIncome=0
+savings=0
+
 expenseCount=0
 recentExpenses:any[]=[]
 
@@ -27,6 +31,7 @@ monthlyChart:any
 
 constructor(
 private expenseService:ExpenseService,
+private incomeService:IncomeService,
 private router:Router
 ){}
 
@@ -35,19 +40,16 @@ ngOnInit(){
 this.loadDashboard()
 
 this.router.events.subscribe(event=>{
-
 if(event instanceof NavigationEnd){
-
 this.loadDashboard()
-
 }
-
 })
 
 }
 
 loadDashboard(){
 
+// EXPENSE DATA
 this.expenseService.getExpenses().subscribe((data:any)=>{
 
 this.expenseCount=data.length
@@ -71,14 +73,32 @@ months[month]+=e.amount
 
 this.totalExpense=total
 
-// budget calculation
 this.remaining=this.budget-this.totalExpense
 this.progress=(this.totalExpense/this.budget)*100
 
 this.createCategoryChart(categories)
 this.createMonthlyChart(months)
 
+this.updateSavings()
+
 })
+
+// INCOME DATA
+this.incomeService.getIncome().subscribe((data:any)=>{
+
+this.totalIncome=data.reduce(
+(sum:any,i:any)=>sum+i.amount,0
+)
+
+this.updateSavings()
+
+})
+
+}
+
+updateSavings(){
+
+this.savings=this.totalIncome-this.totalExpense
 
 }
 
@@ -108,11 +128,17 @@ data:values
 
 createMonthlyChart(months:any){
 
+const canvas:any = document.getElementById("monthlyChart")
+
+if(!canvas){
+return
+}
+
 if(this.monthlyChart){
 this.monthlyChart.destroy()
 }
 
-this.monthlyChart=new Chart("monthlyChart",{
+this.monthlyChart=new Chart(canvas,{
 
 type:'bar',
 

@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ExpenseService } from '../services/expense.service';
+import { IncomeService } from '../services/income.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-selector:'app-add-expense',
+selector:'app-add-income',
 standalone:true,
-imports:[FormsModule, CommonModule],
-templateUrl:'./add-expense.html',
-styleUrls:['./add-expense.css']
+imports:[FormsModule,CommonModule],
+templateUrl:'./add-income.html',
+styleUrls:['./add-income.css']
 })
 
-export class AddExpenseComponent {
+export class AddIncomeComponent{
 
 title:string=""
 amount:number=0
@@ -21,9 +21,9 @@ notes:string=""
 
 successMessage:string=""
 
-constructor(private expenseService:ExpenseService){}
+constructor(private incomeService:IncomeService){}
 
-addExpense(){
+addIncome(){
 
 if(!this.title || !this.amount || !this.category){
 
@@ -44,9 +44,9 @@ notes:this.notes
 
 }
 
-this.expenseService.addExpense(data).subscribe(()=>{
+this.incomeService.addIncome(data).subscribe(()=>{
 
-this.successMessage="Expense added successfully!"
+this.successMessage="Income added successfully!"
 
 this.title=""
 this.amount=0

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const expenseSchema = new mongoose.Schema({
+const incomeSchema = new mongoose.Schema({
 
 userId:{
 type:String,
@@ -20,4 +20,4 @@ default:Date.now
 
 })
 
-module.exports = mongoose.model("Expense",expenseSchema)
+module.exports = mongoose.model("Income",incomeSchema)

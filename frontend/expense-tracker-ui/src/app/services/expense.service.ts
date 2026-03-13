@@ -13,12 +13,15 @@ private api="http://localhost:5000/api/expenses"
 constructor(private http:HttpClient){}
 
 // GET ALL
-getExpenses():Observable<any>{
+getExpenses(){
 
-return this.http.get(this.api)
+const userId = localStorage.getItem("userId")
+
+return this.http.get(
+this.api+"/"+userId
+)
 
 }
-
 // ADD
 addExpense(data:any):Observable<any>{
 

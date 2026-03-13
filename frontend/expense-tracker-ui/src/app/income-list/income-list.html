@@ -1,0 +1,35 @@
+<div class="income-list">
+
+<h2>Income List</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Title</th>
+<th>Amount</th>
+<th>Category</th>
+<th>Date</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr *ngFor="let i of incomes">
+
+<td>{{i.title}}</td>
+<td>₹{{i.amount}}</td>
+<td>{{i.category}}</td>
+<td>{{i.date | date}}</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>

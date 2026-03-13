@@ -13,9 +13,13 @@ type="password"
 placeholder="Password"
 [(ngModel)]="password"
 />
+<button (click)="login()" [disabled]="loading">
 
-<button (click)="login()">Login</button>
+<span *ngIf="!loading">Login</span>
 
+<span *ngIf="loading">Logging in...</span>
+
+</button>
 <p class="error" *ngIf="errorMessage">
 {{errorMessage}}
 </p>

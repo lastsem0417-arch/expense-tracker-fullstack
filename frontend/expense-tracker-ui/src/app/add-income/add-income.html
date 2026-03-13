@@ -1,0 +1,37 @@
+<div class="income-container">
+
+<h2>Add Income</h2>
+
+<div *ngIf="successMessage" class="success">
+{{successMessage}}
+</div>
+
+<label>Title</label>
+<input type="text" [(ngModel)]="title" placeholder="Income title">
+
+<label>Amount</label>
+<input type="number" [(ngModel)]="amount" placeholder="Amount ₹">
+
+<label>Category</label>
+<select [(ngModel)]="category">
+
+<option value="">Select Category</option>
+<option>Salary</option>
+<option>Freelance</option>
+<option>Bonus</option>
+<option>Investment</option>
+<option>Other</option>
+
+</select>
+
+<label>Date</label>
+<input type="date" [(ngModel)]="date">
+
+<label>Notes</label>
+<textarea [(ngModel)]="notes" placeholder="Optional notes"></textarea>
+
+<button (click)="addIncome()">
+Add Income
+</button>
+
+</div>

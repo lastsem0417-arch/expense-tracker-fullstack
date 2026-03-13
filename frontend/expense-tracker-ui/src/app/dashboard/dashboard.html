@@ -1,52 +1,78 @@
 <div class="dashboard">
 
-<h2>Expense Dashboard</h2>
+<h2>Finance Dashboard</h2>
 
 <div class="cards">
 
-<div class="card">
+<div class="card income">
+
+<h3>Total Income</h3>
+<p>₹{{totalIncome}}</p>
+
+</div>
+
+<div class="card expense">
+
 <h3>Total Expense</h3>
 <p>₹{{totalExpense}}</p>
+
 </div>
 
-<div class="card">
-<h3>Total Transactions</h3>
-<p>{{expenseCount}}</p>
+<div class="card savings">
+
+<h3>Savings</h3>
+<p>₹{{savings}}</p>
+
 </div>
 
-<div class="card">
-<h3>Monthly Budget</h3>
+<div class="card budget">
 
-<p>₹{{budget}}</p>
+<h3>Budget Left</h3>
+<p>₹{{remaining}}</p>
 
-<div class="progress-bar">
+</div>
+
+</div>
+
+
+<div class="progress-box">
+
+<h3>Budget Usage</h3>
+
+<div class="progress">
 
 <div
-class="progress"
-[style.width.%]="progress">
+class="progress-bar"
+[style.width.%]="progress"
+>
+
+{{progress | number:'1.0-0'}}%
+
+</div>
+
 </div>
 
 </div>
 
-<p>Remaining ₹{{remaining}}</p>
-
-</div>
-
-</div>
 
 <div class="charts">
 
 <div class="chart-box">
-<h3>Category Analytics</h3>
+
+<h3>Expense by Category</h3>
 <canvas id="expenseChart"></canvas>
+
 </div>
 
 <div class="chart-box">
+
 <h3>Monthly Expense</h3>
 <canvas id="monthlyChart"></canvas>
+
 </div>
 
 </div>
+
 
 <div class="recent">
 
@@ -55,9 +81,11 @@ class="progress"
 <table>
 
 <tr>
+
 <th>Title</th>
 <th>Amount</th>
 <th>Category</th>
+
 </tr>
 
 <tr *ngFor="let e of recentExpenses">

@@ -1,5 +1,6 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
 import { ExpenseService } from '../services/expense.service';
+import { ReportService } from '../services/report.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -22,6 +23,7 @@ editAmount=0
 
 constructor(
 private expenseService:ExpenseService,
+private reportService:ReportService,
 private cd:ChangeDetectorRef
 ){
 this.loadExpenses()
@@ -32,7 +34,6 @@ loadExpenses(){
 this.expenseService.getExpenses().subscribe((data:any)=>{
 
 this.expenses=data
-
 this.cd.detectChanges()
 
 })
@@ -41,11 +42,13 @@ this.cd.detectChanges()
 
 deleteExpense(id:string){
 
+if(confirm("Delete this expense?")){
+
 this.expenseService.deleteExpense(id).subscribe(()=>{
-
 this.loadExpenses()
-
 })
+
+}
 
 }
 
@@ -81,6 +84,18 @@ e.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
 e.category.toLowerCase().includes(this.searchText.toLowerCase())
 
 )
+
+}
+
+downloadPDF(){
+
+this.reportService.generatePDF(this.expenses)
+
+}
+
+downloadExcel(){
+
+this.reportService.generateCSV(this.expenses)
 
 }
 

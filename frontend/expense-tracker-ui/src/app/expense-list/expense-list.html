@@ -1,4 +1,8 @@
-<h2>Expenses</h2>
+<div class="expense-page">
+
+<h2>Expense List</h2>
+
+<div class="top-bar">
 
 <input
 type="text"
@@ -7,7 +11,23 @@ placeholder="Search expense..."
 class="search"
 />
 
+<div class="report-buttons">
+
+<button (click)="downloadPDF()">
+Download PDF
+</button>
+
+<button (click)="downloadExcel()">
+Download Excel
+</button>
+
+</div>
+
+</div>
+
 <table>
+
+<thead>
 
 <tr>
 <th>Title</th>
@@ -15,6 +35,10 @@ class="search"
 <th>Category</th>
 <th>Action</th>
 </tr>
+
+</thead>
+
+<tbody>
 
 <tr *ngFor="let e of filteredExpenses()">
 
@@ -31,7 +55,8 @@ class="search"
 
 <td>
 
-<input type="number"
+<input
+type="number"
 *ngIf="editingId===e._id"
 [(ngModel)]="editAmount">
 
@@ -45,17 +70,26 @@ class="search"
 
 <td>
 
-<button *ngIf="editingId!==e._id"
-(click)="startEdit(e)">
+<button
+*ngIf="editingId!==e._id"
+(click)="startEdit(e)"
+class="edit">
+
 Edit
 </button>
 
-<button *ngIf="editingId===e._id"
-(click)="saveEdit(e._id)">
+<button
+*ngIf="editingId===e._id"
+(click)="saveEdit(e._id)"
+class="save">
+
 Save
 </button>
 
-<button (click)="deleteExpense(e._id)">
+<button
+(click)="deleteExpense(e._id)"
+class="delete">
+
 Delete
 </button>
 
@@ -63,4 +97,18 @@ Delete
 
 </tr>
 
+<tr *ngIf="filteredExpenses().length===0">
+
+<td colspan="4" class="empty">
+
+No expenses found
+
+</td>
+
+</tr>
+
+</tbody>
+
 </table>
+
+</div>
