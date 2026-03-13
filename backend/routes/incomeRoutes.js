@@ -38,6 +38,21 @@ res.status(500).json(error)
 
 }
 
+})
+router.delete("/:id", async(req,res)=>{
+
+try{
+
+await Income.findByIdAndDelete(req.params.id)
+
+res.json({message:"Income deleted"})
+
+}catch(error){
+
+res.status(500).json(error)
+
+}
+
 });
 
 module.exports = router;

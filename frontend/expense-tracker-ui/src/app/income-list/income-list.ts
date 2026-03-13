@@ -26,11 +26,23 @@ loadIncome(){
 
 this.incomeService.getIncome().subscribe((data:any)=>{
 
-console.log("Income Data:",data)
-
 this.incomes=data
 
 })
+
+}
+
+deleteIncome(id:string){
+
+if(confirm("Delete this income?")){
+
+this.incomeService.deleteIncome(id).subscribe(()=>{
+
+this.loadIncome()
+
+})
+
+}
 
 }
 

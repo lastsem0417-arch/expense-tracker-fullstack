@@ -1,8 +1,8 @@
-<div class="income-list">
+<div class="income-container">
 
 <h2>Income List</h2>
 
-<table>
+<table class="income-table">
 
 <thead>
 
@@ -12,6 +12,7 @@
 <th>Amount</th>
 <th>Category</th>
 <th>Date</th>
+<th>Action</th>
 
 </tr>
 
@@ -22,9 +23,35 @@
 <tr *ngFor="let i of incomes">
 
 <td>{{i.title}}</td>
-<td>₹{{i.amount}}</td>
+
+<td class="amount">
+₹{{i.amount}}
+</td>
+
 <td>{{i.category}}</td>
-<td>{{i.date | date}}</td>
+
+<td>{{i.date | date:'mediumDate'}}</td>
+
+<td>
+
+<button
+class="delete-btn"
+(click)="deleteIncome(i._id)"
+>
+Delete
+</button>
+
+</td>
+
+</tr>
+
+<tr *ngIf="incomes.length === 0">
+
+<td colspan="5" class="empty">
+
+No income records found
+
+</td>
 
 </tr>
 

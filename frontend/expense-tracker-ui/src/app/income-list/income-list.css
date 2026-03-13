@@ -1,0 +1,108 @@
+.income-container{
+
+padding:30px;
+
+}
+
+.income-container h2{
+
+margin-bottom:20px;
+color:#1f2937;
+
+}
+
+/* table */
+
+.income-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:white;
+
+box-shadow:0 6px 15px rgba(0,0,0,0.08);
+
+border-radius:10px;
+
+overflow:hidden;
+
+}
+
+/* header */
+
+.income-table thead{
+
+background:#1e293b;
+color:white;
+
+}
+
+.income-table th{
+
+padding:12px;
+text-align:left;
+
+}
+
+/* rows */
+
+.income-table td{
+
+padding:12px;
+border-bottom:1px solid #eee;
+
+}
+
+.income-table tr:hover{
+
+background:#f9fafb;
+
+}
+
+/* amount */
+
+.amount{
+
+color:#16a34a;
+font-weight:bold;
+
+}
+
+/* delete button */
+
+.delete-btn{
+
+background:#ef4444;
+
+color:white;
+
+border:none;
+
+padding:6px 12px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.delete-btn:hover{
+
+background:#dc2626;
+
+}
+
+/* empty */
+
+.empty{
+
+text-align:center;
+
+padding:20px;
+
+color:#6b7280;
+
+}

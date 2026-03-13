@@ -29,5 +29,10 @@ this.api+"/"+userId
 )
 
 }
+deleteIncome(id:any){
+
+return this.http.delete(this.api+"/"+id)
+
+}
 
 }
